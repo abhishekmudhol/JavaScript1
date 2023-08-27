@@ -23,13 +23,13 @@ let state = null;  //intentionaly empty eg-> if we requested a server for a temp
 /*
     DATATYPES
 
-    1. number  => 2^53
-    2.bigint
-    3.string => ""
-    4.boolean
-    5.null => standalone value
-    6.undefined
-    7.symbol =>  unique
+    1.Number  => 2^53
+    2.Bigint
+    3.String => ""
+    4.Boolean
+    5.Null => standalone value
+    6.Nndefined
+    7.Symbol =>  unique
 
 
     // object  
