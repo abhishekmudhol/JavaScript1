@@ -9,28 +9,6 @@
  * In stack we get copy of value i.e. call by value
  * In heap we get original value i.e. reference
  * 
- * 
- *  
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
  */
 
 let myTravel_1 = "iceland";
