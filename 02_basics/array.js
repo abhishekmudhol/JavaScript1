@@ -84,9 +84,9 @@ a[0](); //fuction
  */
 
 
-const arr2 = new Array(1,2,3,4,5)
+const arr2 = new Array(1,2,3,4)
 
-console.log(arr2); // [ 1, 2, 3, 4, 5 ]
+console.log(arr2); // [ 1, 2, 3, 4 ]
 
 // see in browser console (protorype)
 
@@ -95,67 +95,44 @@ console.log(arr2); // [ 1, 2, 3, 4, 5 ]
 //                      ARRAY METHODS
 
 
+arr2.push(5)  //[ 1, 2, 3, 4, 5 ]
+arr2.pop()   //[ 1, 2, 3, 4 ]
 
+arr2.unshift(0) //[ 0, 1, 2, 3, 4 ]
+arr2.shift() //[ 1, 2, 3, 4 ]
 
+console.log(arr2); 
 
+console.log(arr2.includes(4)); //true
+console.log(arr2.includes(100)); //false
 
+console.log(arr2.indexOf(1)); //0
+console.log(arr2.indexOf(9)); //-1 *****
 
+/****************************************************************************/
 
+//                       join()
+  
+const strArray = arr2.join()
 
+console.log(arr2);
+console.log(strArray); //1,2,3,4
 
+console.log(typeof strArray); //string
 
+/****************************************************************************/
 
+//    slice, splice
+const narray = [1,2,3,4,5,6,7,8]
 
+console.log("A",narray) //A [1,2,3,4,5,6,7,8]
 
+const myn1 = narray.slice(1,4);
+console.log(myn1);   // [ 2, 3, 4 ]    // last range not included
+console.log("B",narray) //B [1,2,3,4,5,6,7,8]
 
+const myn2 = narray.splice(1,4)
+console.log(myn2);  // [ 2, 3, 4, 5 ]  / last range included
+console.log("C",narray) //C [ 1, 6, 7, 8 ] *****
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// In splice orignal array get modified and In slice it not get modified
