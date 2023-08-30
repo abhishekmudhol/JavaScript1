@@ -109,6 +109,8 @@ console.log(arr2.includes(100)); //false
 console.log(arr2.indexOf(1)); //0
 console.log(arr2.indexOf(9)); //-1 *****
 
+// pop(),push(),shift(), unshift() method changes the original array.
+
 /****************************************************************************/
 
 //                       join()
