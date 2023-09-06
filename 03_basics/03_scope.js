@@ -58,3 +58,48 @@ method there is varible with same name then also scope gets violets
 // IMPORTANT => GLOBAL SCOPE in node.js and browser are differnt
 
     // see note in commit
+
+/********************************************************/
+
+/**
+ * 
+ * JAVASCRIPT EXCUTE LINE BY LINE
+ * 
+ *  console.log(website); if here is error then 
+ *                        line after this line not get excute
+ * 
+ *   two() // not excute
+ * 
+ */
+
+/*********************closure****************************/
+// child can access parent icecream i.e. variables 
+function one() {
+    const userName = "ABHISHEK"
+
+    function two() {
+        const website = "github.com"
+        console.log(userName); //ABHISHEK
+    }
+   // console.log(website); // ReferenceError: website is not defined
+
+     two()
+}
+
+one()
+
+//  two()  // ReferenceError: two is not defined
+
+/*******************************************************/
+
+if (true) {
+    const userName1 = "ABHISHEK"
+
+    if (userName1 === "ABHISHEK") {
+        const website = "github.com"
+        console.log(userName1 + website); 
+    }
+    // console.log(website); // ReferenceError: website is not defined
+}
+// console.log(userName1); // ReferenceError: userName1 is not defined
+
