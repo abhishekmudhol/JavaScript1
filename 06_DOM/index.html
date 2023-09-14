@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>dom</title>
+
+    <style>
+        body{
+           background-color: burlywood; 
+        }
+    </style>
+
+    </head>
+    <body >
+         <div class="bg-block">
+             <h1 id="heading" class="heading"> <span style="display: none;">text</span> DOM learning</h1>
+              <h2 class="">Lorem ipsum dolor sit?</h2>
+              <h2 class="">Lorem ipsum dolor sit.</h2>
+              <p>Lorem ipsum dolor sit amet.</p>
+              <input type="password" >
+
+              <ul>
+                <li class="list-item">One</li>
+                <li class="list-item">Two</li>
+                <li class="list-item">Three</li>
+                <li class="list-item">Four</li>
+              </ul>
+         </div>
+    </body>
+</html>
+
+ <!--
+   // DO IT ON BROWSER
+
+console.log(window)  // we get window object that contain document in it    
+    
+console.log(window.document)    
+         OR
+console.log(document)
+
+console.dir(window.document) // for getting more info with document
+
+
+// IMPORTANT =>
+1. class is className behind the sence in document but we write class in html element
+
+2. setAttribute() always override the value which is already exits
+                    setAttribute('class', 'test heading') to set class both as test and heading 
+
+3. const title = document.getElementById("heading")
+            title.style.backgroundColor = "blue"    // setting backgroundColor using DOM  
+            
+4.    const title = document.getElementById("heading")
+                
+                title.textContent
+                ' DOM learning'
+
+                title.innerHTML
+                ' DOM learning'
+
+                title.innerText
+                'DOM learning' 
+                
+5. AFTER ADDING <span> with DISPLAY is none
+            const title = document.getElementById("heading")
+                
+                title.innerText
+                'DOM learning'
+
+                title.textContent
+                ' text DOM learning'   // SHOWING text 
+                
+                title.innerHTML
+'               <span style="display: none;">text</span> DOM learning'
+
+
+
+// IMPORTANT =>
+      innerHTML support html tags and textContent , innerText dosn't support it. 
+
+6. document.getElementsByClassName("heading")
+                HTMLCollection [h1#heading.heading, heading: h1#heading.heading]
+                 
+7.   document.querySelector('h2')
+        <h2 class>​Lorem ipsum dolor sit?​</h2>​
+
+     document.querySelector('#heading')  // here we select like css like selector 
+        <h1 id=​"heading" class=​"heading">​…​</h1>​<span style=​"display:​ none;​">​text​</span>​" DOM learning"</h1>​
+
+    document.querySelector('input[type="password"]')
+        <input type=​"password">​
+
+    document.querySelector('.heading')
+         <h1 id=​"heading" class=​"heading">​…​</h1>​
+
+         
+8.  const myul = document.querySelector('ul')
+        
+        myul.querySelector('li')
+           <li>​…​</li>
+ 
+
+9.  myul.querySelectorAll('li')
+         NodeList(4) [li, li, li, li]
+
+10. const tempLIlist = document.querySelectorAll('li')
+
+            tempLIlist.style.color = "orange"  // ERROR BECUZ IT IS nodeList not array we have to specify which element to select
+                 TypeError: Cannot set properties of undefined (setting 'color')
+               
+            tempLIlist[0].style.color = "orange"
+            
+-->
+
+ 
+
+<!--
+     getElementsByClassName() ->  gives HTMLCollection
+     querySelectorAll()       ->  gives NodeList
+
+  IMPORATNT -> HTMLCollection and NodeList are not exactly Array 
+    
+                    //check prototype// 
+
+1.    const tempClassList = document.getElementsByClassName("list-item")
+         Array.from(tempClassList)  // we get array return                     
+-->

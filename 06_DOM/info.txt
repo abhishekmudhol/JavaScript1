@@ -1,0 +1,26 @@
+   getElementsByClassName() ->  gives HTMLCollection
+     querySelectorAll()       ->  gives NodeList
+
+  IMPORATNT -> HTMLCollection and NodeList are not exactly Array  ( see prototype)
+    
+NodeList
+
+   1.  we can convert NodeList into Array 
+
+   2.  USE forEach loop with NodeList map not available WITH NodeList 
+
+
+const tempLIlist = document.querySelectorAll('li')
+
+            tempLIlist.style.color = "orange"  // ERROR BECUZ IT IS nodeList not array we have to specify which element to select
+                 TypeError: Cannot set properties of undefined (setting 'color')
+               
+            tempLIlist[0].style.color = "orange"
+
+HTMLCollection
+
+   1. we not have loops in HTMLCollection
+   SOLUTION :- convert HTMLCollection to Array
+
+const tempClassList = document.getElementsByClassName("list-item")
+ const myConvertedArray = Array.from(tempClassList)  // we get array return 
