@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dom</title>
+</head>
+<body style="background-color: darksalmon; color: #fff;">
+      <div class="parent">
+        <!-- this comment use to analysis NodeList -->
+        <div class="day">monday</div>
+        <div class="day">tuesday</div>
+        <div class="day">wednesday</div>
+        <div class="day">thrusday</div>
+      </div>
+</body>
+<script>
+
+/*
+ *         moving from parent to child
+ * .children  .firstElementChild  .lastElementChild  
+ */
+
+   const parent =  document.querySelector('.parent')
+   console.log(parent);
+   console.log(parent.children); // gives HTMLCollection
+   console.log(parent.children[0].innerHTML);
+
+   for (let i = 0; i < parent.children.length; i++) {
+         console.log(parent.children[i].innerHTML);   
+   }
+
+   //parent.children[1].style.color = "orange" 
+   
+      console.log(parent.firstElementChild); // <div class="day">monday</div>
+      console.log(parent.lastElementChild); // <div class="day">thrusday</div>
+
+/*
+ *         moving from child to parent 
+ *   .parentElement  .nextElementSibling .childNodes
+ */
+     const dayOne = document.querySelector('.day')
+     console.log(dayOne);
+
+     
+     console.log(dayOne.parentElement);
+     console.log(dayOne.nextElementSibling);
+
+     console.log("NODES:" , parent.childNodes); // NodeList(9)  we have 9 node 
+                                               //becuz every line break consider is text node
+                                               // multiple continous line break is consider as 1 line break 
+         
+</script>
+</html>
