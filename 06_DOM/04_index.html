@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom</title>
+</head>
+<body style="background-color: darksalmon; color: #fff;">
+    <ul class="language">
+        <li>javascript</li>
+    </ul>
+</body>
+<script>
+        function addLang(langName)
+        {
+                 
+            const li = document.createElement('li')
+            li.innerHTML=`${langName}`
+
+            document.querySelector('.language').appendChild(li)  
+        }
+        addLang("Typescript") // IN THIS WAY IT HAS TO traverse whole tree to add child at end
+                        // we can do that this way but optimisation issue may arise some time when tree is large 
+
+       //   optimize way
+       
+       function addOptimizelang(langName) 
+       {
+            const li = document.createElement('li')
+            
+            const Text = document.createTextNode(langName)
+            li.appendChild(Text)
+
+            document.querySelector('.language').appendChild(li)  
+       }
+       addOptimizelang("rust")
+
+/***************************EDIT*************************/
+
+const secondLang = document.querySelector("li:nth-child(3)")
+       console.log(secondLang);
+      // secondLang.innerHTML = "mojo"
+
+       const newli = document.createElement('li')
+       newli.textContent = "mojo"
+
+      secondLang.replaceWith(newli) 
+
+
+/***************************EDIT*************************/
+
+const firstLang = document.querySelector("li:first-child")
+    firstLang.outerHTML = '<li>go lang</li>'
+
+
+/***************************REMOVE*************************/
+    
+const lastLang = document.querySelector("li:last-child")
+    lastLang.remove()
+
+</script>
+</html>
