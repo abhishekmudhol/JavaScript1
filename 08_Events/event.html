@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>html Events </title>
+</head>
+<body style="background-color: #414141; color: aliceblue;">
+    <h2>Amazing image</h2>
+    <div >
+        <ul id="images">
+            <li><img width="200px" id="Travel" src="https://s31898.pcdn.co/wp-content/uploads/2022/05/Picture_2_Travel.jpeg" alt="Travel"></li>
+            <li><img width="200px" id="japan" src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="river" src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="travel-Bag" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsq7Ac1J3I2vKSdP6PxpI3kJM8-xkgq-WIFQ&usqp=CAU" alt="" ></li>
+            <li><img width="200px" id="prayer" src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><a style="color: aliceblue;" href="https://google.com" id="google">Google</a></li>
+        </ul>
+   </div>
+</body>
+<script>
+              //    // JAVASCRIPT is sequencetially run language but some time it ignore mean in Async programming , Event Handlers
+              
+              //   /* document.getElementById("river").onclick = function () { alert("got it....")} */
+              //   //  above apporch not give enough info , we should use Event Listners
+              //   // Event Listners give us ability to propogate  
+              
+              //   document.getElementById("river").addEventListener('click' , function(){alert("clicked....")} , false ) // 3rd parameter in many cases BY DEFAULT is flase that why we void to write 
+              // //                                                                                                          BUT in some CASES it is IMPORTANT to write
+              
+              // /*
+              //     attachEvent => used in earlier day FOR internet explorer
+              //     jQuery      => .on  similar to .addEventListener
+              // */
+              
+              // document.getElementById("prayer").addEventListener('click' , function(e){ 
+              //     console.log(e);
+              //     console.log(e.x);
+              // } , false ) 
+              
+              // /*
+              //     WHAT TO STUDY ABOUT EVENTS
+              
+              //     1.types
+              //     2.timestamp
+              //     3.defaultPrevented   => we can stop default behaviour any tag like stop form from submitting when we clicked submit button 
+              //     4.target
+              //     5.toElement
+              //     6.srcElement
+              //     7.clientX , clientY , screenX , screenY
+              //     8.altKey , ctrlKey , shiftKey , keyCode
+                 
+              // */
+              
+              // /*
+              //  event propogation 
+              //     event propopgation has 2 context
+              //        1. event bubbling
+              //        2. event capturing 
+              
+              // In market most project done by a defult one i.e. flase =>  event bubbling  
+              // */
+              // document.getElementById("images").addEventListener('click' , function(e){ 
+              //     console.log("clicked inside the ul");
+              // } , false ) 
+              
+              // document.getElementById("japan").addEventListener('click' , function(e){ 
+              //     console.log("japan clicked");
+              // } , false ) 
+              
+              // /*
+              //   IMPORTANT  
+              
+              //    flase => event bubbling  => botton TO top  (default)
+              //    true  => event capturing => top TO bottom
+              
+              //   use => according to USECASE 
+              // */
+              
+              // // TO AVOID bubbling OF event USE .stopPropagation() METHOD
+              
+              // document.getElementById("japan").addEventListener('click' , function(e){ 
+              //     console.log("japan clicked");
+              //     e.stopPropagation()
+              // } , false ) 
+              // /*******************************************************************/$
+              
+              // document.getElementById("google").addEventListener('click' , function(e){
+              //     console.log("google clicked");
+              //     e.preventDefault()  // stop going to google site we we clicked that link
+              //     e.stopPropagation() // stop a event bubbling
+              // } , false)
+
+ document.querySelector('#images').addEventListener('click' , function(e){
+             
+       let clickedElement = e.target.parentNode  // used parentNode becuz want to select whole li i.e. list not 
+//                                                     just images OTHERWISE images get removed BUT bulletpoint don't. 
+        console.log(clickedElement)
+        console.log(e.target.tagName)
+
+    if (e.target.tagName === 'IMG') 
+    {
+        clickedElement.remove()
+//               OR
+//      clickedElement.parentNode.removeChild(clickedElement)
+    }
+      
+ } , false)
+
+</script>
+</html>
