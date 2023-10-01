@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Number Guessing Game</title>
+     
+    <style>
+            * {
+                box-sizing: border-box;
+              }
+
+            body {
+                margin: 0;
+                font-family: system-ui, sans-serif;
+                color: black;
+                background-color: white;
+              }
+
+            main {
+                padding: 1rem;
+              }
+
+            h1 {
+                font-weight: bold;
+                font-size: 1.5rem;
+              }
+
+    </style>
+  </head>
+
+  <body style="background-color: #212121; color: #fff">
+    <h1>Start should change the Background color every second</h1>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+  </body>
+
+  <script>
+    //  const RandomColor = function getRandomHexColor() {
+    //                         // Generate random values for red, green, and blue components
+    //                         const red = Math.floor(Math.random() * 256); // 0 to 255
+    //                         const green = Math.floor(Math.random() * 256); // 0 to 255
+    //                         const blue = Math.floor(Math.random() * 256); // 0 to 255
+                            
+    //                         // Convert the values to hexadecimal format and concatenate them
+    //                         const hexRed = red.toString(16).padStart(2, '0');
+    //                         const hexGreen = green.toString(16).padStart(2, '0');
+    //                         const hexBlue = blue.toString(16).padStart(2, '0');
+                            
+    //                         // Combine the components to form a hex color code
+    //                         const hexColor = `#${hexRed}${hexGreen}${hexBlue}`;
+                            
+    //                         return hexColor;
+    //                         }
+
+
+
+    const RandomColor =  function  () {
+
+                                  const hex = '0123456789ABCDEF'
+                                  let color = '#'
+
+                                  for (let i = 0; i < 6; i++) {
+                                     color = color + hex[Math.floor(Math.random()*16)]   
+                                           }   
+                                  return color 
+                                 }                      
+   
+    let referenceForClearInterval;                         
+
+    document.querySelector('#start').addEventListener('click',function(){
+       
+      if (referenceForClearInterval == null /*OR !referenceForClearInterval*/) {
+        referenceForClearInterval = setInterval(() => { document.body.style.backgroundColor = RandomColor()},1000)
+      }
+        
+    })
+
+    document.querySelector('#stop').addEventListener('click',function(){
+         clearInterval(referenceForClearInterval)
+         
+         referenceForClearInterval = null  // for better code becuz variable is not in use
+  //                                    BUT after doing that stop may not work IF WE CLICK start BUTTON MORE THAT 1 AT SAME TIME we have to do check before doing setInterval using if statement                             
+    })
+
+   /*
+      
+If you remove the check if (!referenceForClearInterval) and directly call setInterval in the startChangingColor 
+function without verifying whether the interval is already running, you might encounter some issues related to multiple intervals running simultaneously.
+
+Here's what would happen:
+
+When you click the "Start" button multiple times rapidly, it will repeatedly call setInterval,
+starting multiple intervals concurrently. This can result in the background color changing more rapidly than intended.
+
+If you later click the "Stop" button, it will clear only one of the intervals, leaving others
+ still running. This is because each call to setInterval returns a unique interval ID, and you're 
+ storing it in the referenceForClearInterval variable. Clearing referenceForClearInterval will only stop one of the intervals, not all of them.
+
+It can lead to inefficient code execution, as you may have multiple redundant intervals running concurrently.
+
+To avoid these issues, it's a good practice to check if the interval is already running (by verifying if
+ referenceForClearInterval is truthy) before starting a new one. This ensures that you have a single interval running at 
+ any given time, and you can stop it cleanly when needed.
+
+By using the check if (!referenceForClearInterval), you prevent multiple intervals from being started simultaneously,
+ and your code remains more predictable and efficient.
+   */
+
+  </script>
+</html>
