@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+      <h1>Javascript Essentials</h1>
+      <button id="stop">stop</button>
+</body>
+<script>
+   // setTimeout() =>  // It is a method BUT also call some API  // it is not core function we get it through browser i.e. it is not part of core js
+
+   /*
+      setTimeout(function(){
+        console.log("setTimeout....");
+      } , 2000 )  // milisec 
+   */
+      
+      const func = function(){ console.log("setTimeout....");} 
+      setTimeout(func, 2000 )    // GIVING REFERENCE OF FUNCTION
+
+      const changeText = function(){document.querySelector('h1').innerHTML = "Abhishek"}
+     const changeMe =  setTimeout(changeText, 5000 )
+     
+      document.querySelector('#stop').addEventListener('click' , function(){
+        clearTimeout(changeMe)
+        console.log("clearTimeout....");
+      } ) 
+
+</script>
+</html>
