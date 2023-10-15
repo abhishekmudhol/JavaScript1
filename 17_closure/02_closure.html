@@ -1,0 +1,34 @@
+
+  // closure => when we return inner function whole lexical scope get returned with it
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>closure</title>
+</head>
+<body>
+    
+</body>
+<script>
+
+    function makeFunc() 
+    {
+        const name = "Mozilla";
+
+        function displayName() {
+            console.log(name);
+        }
+        
+        return displayName; //here whole lexical scople get returned
+    }                       // thats why we have name inside displayName() although makeFunc() excuted i.e. it's excution context get deleted
+
+    const myFunc = makeFunc();
+    myFunc();
+
+    /* A closure is the combination of a function and the 
+    lexical environment within which that function was declared.*/
+
+    </script>
+</html>
