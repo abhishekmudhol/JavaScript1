@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React</title>
+</head>
+<body>
+    <button>Button Click</button>
+</body>
+<script>
+    class React 
+    {
+        constructor()
+        {
+            this.library = "React"
+            this.server = "https://localhost:4000"
+
+         // Requirement => when this page loads the Object of React should get create
+          
+           document
+               .querySelector('button')
+               .addEventListener('click',this.handleClick.bind(this)) //.bind(this) is used to set the value of this inside the handleClick method to the current instance of the React class.
+
+        }
+        handleClick()
+        {
+            console.log("button clicked");
+            console.log(this);               //<button>Button Click</button>
+            console.log(this.server);
+        }
+    }
+
+     const app = new React()
+</script>
+</html>
